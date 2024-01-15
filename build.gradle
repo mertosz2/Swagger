@@ -20,7 +20,12 @@ repositories {
 dependencies {
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'io.swagger.core.v3:swagger-annotations:2.2.16'
+	implementation 'javax.validation:validation-api:2.0.1.Final'
+	implementation 'javax.annotation:javax.annotation-api:1.3.2'
+	implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
 }
 
 tasks.named('test') {
@@ -46,7 +51,7 @@ openApiGenerate {
 sourceSets {
 	main{
 		java{
-			srcDirs("tasks.openApiGenerate")
+			srcDirs(tasks.openApiGenerate)
 		}
 	}
 }
